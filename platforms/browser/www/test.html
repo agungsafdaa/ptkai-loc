@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Belajar Dasar Ajax</title>
+  </head>
+
+  <body>
+    <h1>Kirim Data dengan Ajax</h1>
+    <form method="POST"></form>
+      <p>
+        <label>Title</label>
+        <input type="text" id="title" placeholder="judul artikel" />
+      </p>
+
+      <input type="submit"  id="daftar" value="Kirim" />
+    </form>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+      $("#daftar").click(function () {
+        var nama_bidang = $("#title").val();
+
+        $.ajax({
+          url:
+            "https://ptkai-loc.teknopertiwi.com/admin/data_bidang/tambah_data",
+          method: "POST", //First change type to method here
+
+          data: {
+            nama_bidang: "aaa", // Second add quotes on the value.
+          },
+          success: function (response) {
+            alert("Sukses");
+            window.location = "";
+          },
+          error: function () {
+            alert("error");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

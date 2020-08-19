@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"
+    />
+       <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+
+    <style type="text/css">
+      #peta {
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="brand">
+          <a href="#!"><img class="logo" src="img/kai.png" /></a>
+        </div>
+        <nav>
+          <div class="nav-mobile">
+            <a id="nav-toggle" href="#!"><span></span></a>
+          </div>
+          <ul class="nav-list" id="list-menu"></ul>
+        </nav>
+      </div>
+    </section>
+
+    <div class="container content" id="body-content">
+    
+      <div class="row">
+        <div class="col-sm-4">
+            <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Tambah Data
+      </button>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Entry IP Addres
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="POST">
+                <div class="form-group">
+                  <label for="staticEmail2" class="sr-only">IP Addres</label>
+                  <input
+                    id="ipaddres"
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="name@example.com"
+                  />
+                </div>
+             
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                onclick="getLocation()"
+                type="button"
+                class="btn btn-primary"
+              >
+               Kirim Data
+              </button>
+               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--- end modal-->
+              <div class="card table-responsive">
+            <h5 class="card-header">Entry User</h5>
+            <div class="card-body">
+              <table id="example2" class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>IP Addres</th>
+                    <th>Pengirim</th>
+
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="listIP"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-8">
+           <div class="card">
+              <div class="card-header">
+                Peta Persebaran IP Addres PT KAI Divre 3
+              </div>
+              <div class="card-body">
+                <div id="peta"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"></h5>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container" style="padding-top: 3px;">
+          © 2014 Copyright PT KAI Divre III
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+   <script
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/ip.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        console.log(sessionStorage.getItem("token"));
+        $.ajax({
+          url: "https://ptkai-loc.teknopertiwi.com/auth/cek_login",
+          method: "POST",
+          success: function (data) {
+            if (sessionStorage.getItem("token") == null) {
+              Swal.fire({
+                type: "warning",
+                title: "Oops!",
+                text: "Anda harus login dahulu!",
+                timer: 3000,
+                showCancelButton: false,
+                showConfirmButton: false,
+              }).then(function () {
+                window.location.href = "index.html";
+              });
+            }
+          },
+        });
+        if (sessionStorage.getItem("akses_name") == "karyawan") {
+          document.getElementById("list-menu").innerHTML = `
+           <li>
+              <a href="dashboard.html">Home</a>
+            </li>
+            <li>
+              <a href="lokasi.html" >Lokasi IP</a>
+            </li>
+            <li>
+              <a onclick="deleteItems()"
+                >Keluar</a>
+            </li>
+            `;
+        } else {
+          document.getElementById("list-menu").innerHTML = `
+           <li>
+              <a href="dashboard.html" id="home">Home</a>
+            </li>
+            <li>
+              <a href="data-user.html" id="bidang">Entry Bidang</a>
+            </li>
+
+            <li>
+              <a href="lokasi.html" id="lokasi">Lokasi IP</a>
+            </li>
+            <li>
+              <a
+                id="
+              keluar"
+                onclick="deleteItems()"
+                >Keluar</a
+              >
+            </li>
+            `;
+        }
+      });
+
+      
+
+      $(document).ready(function () {
+        $("#example").DataTable();
+      });
+    </script>
+  </body>
+</html>

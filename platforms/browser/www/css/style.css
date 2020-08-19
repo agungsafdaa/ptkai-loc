@@ -1,0 +1,189 @@
+body {
+  position: relative;
+  /* display: flex; */
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f9f9f9;
+}
+.content {
+  padding-top: 30px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+.navbar {
+  background: #ffffff !important;
+}
+
+.logo {
+  width: 85px;
+  padding-top: 5px;
+}
+
+nav a {
+  color: #607d8b !important;
+}
+
+.content {
+  padding-top: 50px;
+  padding-bottom: 170px;
+}
+
+.welcome-text {
+  margin-bottom: 0px;
+}
+.profil {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  height: 202px;
+  background-repeat: no-repeat;
+  color: #333 !important;
+  position: relative;
+  background-position: right;
+  background-image: url(../img/kereta-api.jpg);
+  box-shadow: 0px 0px 40px 0px rgba(99, 99, 99, 0.2);
+}
+
+.box-data {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  height: 115px;
+  background-repeat: no-repeat;
+  color: #333 !important;
+  position: relative;
+  background-position: top right;
+  background-image: url(../img/bg1.png);
+  box-shadow: 0px 0px 40px 0px rgba(99, 99, 99, 0.2);
+}
+
+.data {
+  position: absolute;
+  top: 56px;
+  left: 90px;
+}
+
+.data-info {
+  position: absolute;
+  top: 24px;
+  left: 90px;
+}
+.logo-home {
+  position: absolute;
+  top: 25px;
+  /* left: 33px; */
+  width: 35px;
+}
+
+.logo-home img {
+  width: 55px;
+}
+
+.profil-user {
+  position: absolute;
+  top: 45px;
+}
+
+.profil-info {
+  position: absolute;
+  left: 90px;
+}
+
+.profil-user img {
+  width: 110px;
+}
+
+.profil-footer {
+  position: relative;
+  top: 114px;
+  padding: 0.75rem 1.25rem;
+  /* background-color: rgba(0, 0, 0, 0.03); */
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.top-bg {
+  border-radius: 5px;
+  background: white;
+  background-image: url("../img/kereta-api.jpg");
+  background-repeat: no-repeat;
+
+  background-position: right;
+}
+
+.card {
+  margin-top: 15px;
+}
+
+.card-header,
+.card-body {
+  margin: 0px 0px 0px 0px;
+}
+
+.card-bottom {
+  background-image: url("../img/bg1.png");
+  background-repeat: no-repeat;
+
+  background-position: top right;
+  border-radius: 5px;
+}
+
+.black-text {
+  color: #333 !important;
+}
+
+#peta {
+  height: 100vh;
+}
+
+.profil-logo {
+  width: 100px;
+}
+
+.profil-info {
+  padding-top: 17px;
+  padding-left: 50px;
+}
+
+.form-input {
+  background: white;
+  border: 1px solid lightGray;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.page-footer {
+  width: 100%;
+  height: 110px;
+  padding-left: 10px;
+  line-height: 50px;
+  padding-top: 20px;
+  color: #fff;
+  background: linear-gradient(0deg, #1b68b1, #f58938);
+  position: absolute;
+  bottom: 0px;
+}
+
+@media (max-width: 767px) {
+  .profil {
+    background-position: top;
+  }
+  .profil-logo {
+    width: 60px;
+  }
+  .profil-info {
+    padding-top: 1px;
+    padding-left: 40px;
+  }
+  .content {
+    padding-bottom: 501px;
+  }
+  .page-footer {
+    margin-top: 50px !important;
+    height: 500px !important;
+  }
+}
