@@ -1,0 +1,2 @@
+# ptkai-loc
+lokasi
